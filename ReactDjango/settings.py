@@ -114,7 +114,7 @@ WEBPACK_LOADER = {
     }
 }
 
-if os.name == 'nt' and 0:
+if os.name == 'nt':
     WEBPACK_LOADER['ONE_EXAMPLE'].update({
         'BUNDLE_DIR_NAME': 'one_example_bundles/',
         'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats-one-example.json')
