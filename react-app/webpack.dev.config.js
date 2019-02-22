@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const BundleTracker = require('webpack-bundle-tracker');
 
 const common = require('./webpack.common.config');
 
@@ -11,5 +12,8 @@ module.exports = merge(common, {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
+        new BundleTracker({
+            filename: '../webpack-stats-one-example.json'
+        })
     ]
 });

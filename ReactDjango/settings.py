@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'webpack_loader'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -101,3 +102,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+# webpack
+WEBPACK_LOADER = {
+    'ONE_EXAMPLE': {
+        'BUNDLE_DIR_NAME': 'one_example_bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats-one-example-prod.json')
+    }
+}
+
+if os.name == 'nt' and 0:
+    WEBPACK_LOADER['ONE_EXAMPLE'].update({
+        'BUNDLE_DIR_NAME': 'one_example_bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats-one-example.json')
+    })
